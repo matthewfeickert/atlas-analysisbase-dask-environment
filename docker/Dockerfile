@@ -5,10 +5,10 @@ SHELL [ "/bin/bash", "-c" ]
 
 USER root
 
-COPY --chown=atlas . /analysis
+COPY --chown=atlas analysis /analysis
 WORKDIR /analysis
 
-COPY --chown=atlas cmd.sh /cmd.sh
+COPY --chown=atlas /docker/cmd.sh /cmd.sh
 RUN chmod +x /cmd.sh
 
 RUN printf '\n# Activate python virtual environment\nif [ -d /venv/bin ]; then\n    . /venv/bin/activate\nfi\n' >> /release_setup.sh && \
