@@ -1,7 +1,7 @@
 lock:
 	docker pull gitlab-registry.cern.ch/atlas/athena/analysisbase:24.2.26
 	docker build \
-		--file release_24/Dockerfile.lockfile-builder \
+		--file docker/Dockerfile.lockfile-builder \
 		--build-arg BASE_IMAGE=gitlab-registry.cern.ch/atlas/athena/analysisbase:24.2.26 \
 		--tag tmp/analysisbase:rel24-lockfile-builder \
 		docker
@@ -9,7 +9,7 @@ lock:
 		--rm \
 		-ti \
 		--user 1000:1000 \
-		--volume $(shell pwd)/release_24:/workdir \
+		--volume $(shell pwd)/docker:/workdir \
 		tmp/analysisbase:rel24-lockfile-builder \
 		bash -c 'bash <(curl -sL https://raw.githubusercontent.com/matthewfeickert/cvmfs-venv/v0.0.4/cvmfs-venv.sh) && \
 			. venv/bin/activate && \
