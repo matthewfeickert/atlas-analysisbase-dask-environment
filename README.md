@@ -3,6 +3,24 @@ Example of how to create an ATLAS AnalysisBase Docker image that can install das
 
 Based off of https://gitlab.cern.ch/recast-atlas/examples/analysis-base-container-python-venv
 
+## Run
+
+```
+docker pull matthewfeickert/analysisbase-dask:24.2.26
+```
+
+```
+docker run --rm -ti --publish 8888:8888 --volume $PWD/analysis:/analysis matthewfeickert/analysisbase-dask:24.2.26
+```
+
+(as using Jupytext right click the `example.py` to open as a Jupyter notebook)
+
+### Without using the JupyterLab environment
+
+```
+docker run --rm -ti --publish 8888:8888 --volume $PWD/analysis:/analysis matthewfeickert/analysisbase-dask:24.2.26 /bin/bash
+```
+
 ## AnalysisBase images
 
 Lists of all AnalysisBase releases are provided on the ATLAS Twikis:
