@@ -8,6 +8,9 @@ USER root
 COPY --chown=atlas . /analysis
 WORKDIR /analysis
 
+COPY --chown=atlas cmd.sh /cmd.sh
+RUN chmod +x /cmd.sh
+
 RUN printf '\n# Activate python virtual environment\nif [ -d /venv/bin ]; then\n    . /venv/bin/activate\nfi\n' >> /release_setup.sh && \
     bash <(curl -sL https://raw.githubusercontent.com/matthewfeickert/cvmfs-venv/v0.0.4/cvmfs-venv.sh) /venv && \
     chown -R atlas /venv && \
@@ -24,3 +27,5 @@ RUN printf '\n# Activate python virtual environment\nif [ -d /venv/bin ]; then\n
     root --version
 
 USER atlas
+
+CMD [ "/cmd.sh" ]
