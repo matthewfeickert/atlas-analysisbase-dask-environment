@@ -25,3 +25,6 @@ build:
 		--build-arg BASE_IMAGE=gitlab-registry.cern.ch/atlas/athena/analysisbase:24.2.26 \
 		--tag example/analysisbase-dask:24.2.26 \
 		.
+
+tag:
+	docker tag example/analysisbase-dask:24.2.26 atlas-analysisbase-dask-environment/analysisbase-dask:24.2.26
