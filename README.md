@@ -6,11 +6,11 @@ Based off of https://gitlab.cern.ch/recast-atlas/examples/analysis-base-containe
 ## Run
 
 ```
-docker pull atlas-analysisbase-dask-environment/analysisbase-dask:24.2.26
+docker pull matthewfeickert/analysisbase-dask:24.2.26
 ```
 
 ```
-docker run --rm -ti --publish 8888:8888 --volume $PWD/analysis:/analysis atlas-analysisbase-dask-environment/analysisbase-dask:24.2.26
+docker run --rm -ti --publish 8888:8888 --volume $PWD/analysis:/analysis matthewfeickert/analysisbase-dask:24.2.26
 ```
 
 (as using Jupytext right click the `example.py` to open as a Jupyter notebook)
@@ -18,7 +18,7 @@ docker run --rm -ti --publish 8888:8888 --volume $PWD/analysis:/analysis atlas-a
 ### Without using the JupyterLab environment
 
 ```
-docker run --rm -ti --publish 8888:8888 --volume $PWD/analysis:/analysis atlas-analysisbase-dask-environment/analysisbase-dask:24.2.26 /bin/bash
+docker run --rm -ti --publish 8888:8888 --volume $PWD/analysis:/analysis matthewfeickert/analysisbase-dask:24.2.26 /bin/bash
 ```
 
 ## AnalysisBase images

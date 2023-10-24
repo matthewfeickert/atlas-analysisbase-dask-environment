@@ -27,4 +27,4 @@ build:
 		.
 
 tag:
-	docker tag example/analysisbase-dask:24.2.26 atlas-analysisbase-dask-environment/analysisbase-dask:24.2.26
+	docker tag example/analysisbase-dask:24.2.26 matthewfeickert/analysisbase-dask:24.2.26
