@@ -5,6 +5,8 @@ SHELL [ "/bin/bash", "-c" ]
 
 USER root
 
+COPY --chown=atlas docker/requirements.txt /docker/
+COPY --chown=atlas docker/requirements.lock /docker/
 COPY --chown=atlas analysis /analysis
 WORKDIR /analysis
 
@@ -20,7 +22,7 @@ RUN printf '\n# Activate python virtual environment\nif [ -d /venv/bin ]; then\n
         --upgrade \
         --no-deps \
         --require-hashes \
-        --requirement requirements.lock && \
+        --requirement /docker/requirements.lock && \
     chown -R atlas /venv && \
     python --version --version && \
     python -m pip list && \
